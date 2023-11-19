@@ -1,6 +1,9 @@
+import { Providers } from "@/core/providers";
+import { IChildren } from "@/shared/types";
 import { appTitle } from "@/shared/utils";
+import classNames from "classnames";
 import type { Metadata, Viewport } from "next";
-import { ReactNode } from "react";
+import { openSansFont, ralewayFont } from "./fonts";
 
 export const metadata: Metadata = {
   title: appTitle(),
@@ -11,15 +14,20 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#2D3748",
+  themeColor: "#1A202C",
   colorScheme: "light",
 };
 
-const RootLayout = ({ children }: { children: ReactNode }) => {
+const RootLayout = ({ children }: IChildren) => {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={classNames(openSansFont.variable, ralewayFont.variable)}
+    >
       <body>
-        <main>{children}</main>
+        <Providers>
+          <main>{children}</main>
+        </Providers>
       </body>
     </html>
   );
