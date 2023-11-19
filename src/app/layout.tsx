@@ -1,6 +1,6 @@
+import { appTitle } from "@/shared/utils";
 import type { Metadata, Viewport } from "next";
 import { ReactNode } from "react";
-import { appTitle } from "@/shared/utils";
 
 export const metadata: Metadata = {
   title: appTitle(),
